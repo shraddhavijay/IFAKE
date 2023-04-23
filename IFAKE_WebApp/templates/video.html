@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>IFAKE</title>
+    <meta name="description" content="Forgery Detection web app">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="{% static 'assets/css/Footer-Dark.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+<body style="padding-top: 70px;background-image: linear-gradient(to bottom, #ee0979, #ff6a00);">
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">IFAKE</a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"></li>
+                <li class="nav-item" role="presentation"></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="row" style="padding: 70px;">
+    <div class="col">
+        <form method="POST" action="runVideoAnalysis" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="col" style="padding: 10px;">
+                    <input type="file" id="input_video" name="input_video"
+                                                               onchange="loadFile(event)" style="margin-bottom: 15px;" >
+                                                               <button class="btn btn-primary" type="submit" name="run" value="run"
+                                                               style="background: black;margin: 5px;" >Upload
+                                                       </button>
+                </div>
+                
+            </div>
+            <video id="upl_vid" controls="controls" allowfullscreen="" frameborder="0" width="560" height="315"
+                   style="background: black;height: 400px;width: 400px;">
+                <source src="{{ input_video }}" type="video/mp4">
+                
+            </video>
+            <div class="form-row">
+                <div class="col">
+                    <div class="btn-group" role="group">
+                       
+                        <button class="btn btn-primary" type="submit" name="detect" value="detect"
+                                style="background: black;margin: 5px;">Detect Forgery
+                        </button>
+                       
+                    </div>
+                </div>
+            </div>
+            <div
+            class="alert alert-success" role="alert"><span>Result: Video is <b>{{result.result}}</b><br>
+            Number of Forged Frames: <b>{{result.f_frames}}</b><br></span>
+         </div>
+         
+        </form>
+
+        <h4>Metadata</h4>
+                <table class="table table-bordered table-striped table-dark table-hover" >
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Value</th>
+                    </tr>
+                
+                    {% for key, value in metadata %}
+                    <tr>
+                        <td>{{key}}</td>
+                        <td>{{value}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </table>
+                
+    </div>
+    <!-- <div class="col">
+        <div class="row">
+            <div class="col">
+                <form method="POST" action="getProcessedVideo" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="col" style="padding: 10px;">
+                        <h2>Video Forensic</h2>
+                    </div>
+                   <video  width="500px" height="500px" controls="controls"  frameborder="0" width="560" height="315"    style="background: black;height: 400px;width: 400px;" >
+
+                <source src="{{output_video}}" type="video/mp4">
+                </video>
+                    <div
+                            class="form-row">
+                        <div class="col">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-primary" type="submit" name="preprocessing" value="preprocessing" style="background: black;margin: 5px;">
+                                    Preprocessing
+                                </button>
+                                <button class="btn btn-primary" type="submit" name="noise" value="noise" style="background: black;margin: 5px;">
+                                    Noise
+                                </button>
+                                <button class="btn btn-primary"
+                                        type="submit" name="motion_analysis" value="motion_analysis" style="background: black;margin: 5px;">Motion analysis
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+</div>
+<footer class="py-5 bg-black">
+    <div class="container">
+        <p class="text-center text-white m-0 small">Copyright&nbsp;© IFAKE 2021</p>
+    </div>
+</footer>
+<script>
+    var loadFile = function (event) {
+        var input_vid = document.getElementById('upl_vid');
+
+        input_vid.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

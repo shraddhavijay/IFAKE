@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Ifake</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+    <link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Footer-Dark.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Navigation-with-Search.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/css/magnify.css"
+          integrity="sha512-JxBFHHd+xyHl++SdVJYCCgxGPJKCTTaqndOl/n12qI73hgj7PuGuYDUcCgtdSHTeXSHCtW4us4Qmv+xwPqKVjQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+</head>
+
+<body style="background: linear-gradient(0deg,#ff6a00,#ee0979);height: 947px;">
+<nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background-color: #343a40;">
+    <div class="container"><a class="navbar-brand" href="{% url 'index' %}" style="color: rgb(255,255,255);">IFAKE</a>
+        <button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span
+                class="navbar-toggler-icon"></span></button>
+    </div>
+</nav>
+    <div class="container" style="height: 724px;">
+        <div class="col-xl-12" style="height: 830px;">
+            <form method="POST" action="runPdf2image" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" id="input_pdf" name="input_pdf"
+                       style="background-color: #000000;color: rgb(255,255,255);">
+                <button class="btn btn-primary" type="submit" name="run" value="run"   style="background-color: #000000;color: rgb(255,255,255);">
+                    Check
+                </button>
+                <table class="table table-bordered table-striped table-dark table-hover">
+                    <tr>
+                        <th>Pages</th>
+                        <th>Result</th>
+                        <th>Check for more details</th>
+                    </tr>
+
+                    {% for image,res  in pdf_img  %}
+                        <tr>
+                        {#         href to pdfimage.html with image parameter(location of image)                   #}
+                        <!-- <form method="POST" action="processPdfImage" enctype="multipart/form-data"> -->
+                            <td><img src="{{ image }}" width="100px" height="100">
+                                <!-- <input type="text" name="counter" value="{{ forloop.counter }}"> -->
+                                <label>Page:{{forloop.counter}}</label> <input  type="text" name="image_url-{{ forloop.counter }}" value="{{ image }}"></td>
+                                <td><span>Result: Image is <b>{{ res.type }}</b><br>
+                                    Confidence: <b>{{ res.confidence }}%</b></td>
+                            <td> <button class="btn btn-primary" type="submit" name="passImage" value="{{ forloop.counter }}" style="margin: 15px;">Check Page:{{forloop.counter}}
+                            </td>
+                        <!-- </form> -->
+                        </tr>
+                    {% endfor %}
+                </table>
+            </form>
+        </div>
+    </div>
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

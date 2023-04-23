@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Ifake</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+    <link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Footer-Dark.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Navigation-with-Search.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/css/magnify.css" integrity="sha512-JxBFHHd+xyHl++SdVJYCCgxGPJKCTTaqndOl/n12qI73hgj7PuGuYDUcCgtdSHTeXSHCtW4us4Qmv+xwPqKVjQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body style="background: linear-gradient(0deg,#ff6a00,#ee0979);height: 947px;">
+<nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background-color: #343a40;">
+    <div class="container"><a class="navbar-brand" href="{% url 'index' %}" style="color: rgb(255,255,255);">IFAKE</a>
+        <button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span
+                class="navbar-toggler-icon"></span></button>
+    </div>
+</nav>
+<div>
+    <div class="container">
+              <div class="row">
+            <div class="col-md-6">
+                <form method="POST" action="runAnalysis" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col"><input type="file" id="input_image" name="input_image"
+                                                onchange="loadFile(event)"
+                                                style="height: 38px;padding: 11px;margin: 10px;"></div>
+                    </div>
+                    <img  id="upl_img" src='{{ input_image }}' class="zoom" data-magnify-src='{{ input_image }}'
+                         onerror=this.src="https://media.istockphoto.com/vectors/fake-grunge-false-red-stamp-vector-id907865828"
+                         style="background-color: #222222;width: 500px;height: 500px; ">
+                    <button class="btn btn-primary" type="submit" name="run" value="run" style="margin: 15px;">Check
+                    </button>
+                    <div class="alert alert-success" role="alert"><span>Result: Image is <b>{{ result.type }}</b><br>
+                     Confidence: <b>{{ result.confidence }}%</b><br>
+                     <p style="font-weight: normal; font-size: 15px;" id="identicalreg"></p>
+                  </span></div>
+                <h4>Metadata</h4>
+                <table class="table table-bordered table-striped table-dark table-hover" >
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Value</th>
+                    </tr>
+                
+                    {% for key, value in metadata %}
+                    <tr>
+                        <td>{{key}}</td>
+                        <td>{{value}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </table>
+                
+
+                </form>
+            </div>
+            <div class="col-md-6" id="imagegenerationSecton">
+                <form method="POST" action="getImages" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="btn-group" role="group" style="margin: 10px;">
+                                <button id="maskButton" class="btn btn-primary" type="submit" name="mask" value="mask"
+                                        style="margin-right: 5px;background: black;">Mask
+                                </button>
+                                <button class="btn btn-primary" type="submit" name="ela" value="ela"
+                                        style="margin-right: 5px;background: black;">ELA
+                                </button>
+                                <button class="btn btn-primary" type="submit" name="edge_map" value="edge_map"
+                                        style="margin-right: 5px;background: black;">Edge Map
+                                </button>
+                                <button class="btn btn-primary" type="submit" name="na" value="na"
+                                      style="background: black;">Noise Analysis
+                                </button>
+                                <button class="btn btn-primary" type="submit" name="copy_move_sift" value="copy_move_sift"
+                                      style="background: black;">Copy Move
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <img id="output_img" alt='Output' src="{{ url }}" class="zoom2" data-magnify-src='{{ url }}'
+                         onerror=this.src="https://media.istockphoto.com/vectors/fake-grunge-false-red-stamp-vector-id907865828"
+                         style="background-color: #222222;width: 500px;height: 500px; ">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="py-5 bg-black">
+    <div class="container">
+        <p class="text-center text-white m-0 small">Copyright&nbsp;© IFAKE 2021</p>
+    </div>
+</footer>
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/js/jquery.magnify.min.js" integrity="sha512-YKxHqn7D0M5knQJO2xKHZpCfZ+/Ta7qpEHgADN+AkY2U2Y4JJtlCEHzKWV5ZE87vZR3ipdzNJ4U/sfjIaoHMfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+$(document).ready(function() {
+  $('.zoom').magnify();
+});
+</script>
+<script>
+$(document).ready(function() {
+  $('.zoom2').magnify();
+});
+</script>
+<script>
+    var loadFile = function (event) {
+        var input_image = document.getElementById('upl_img');
+
+        input_image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    
+    var img_res = "{{result.type}}";
+    //var identical_regions = "{{result.identical_regions}}";
+    //var noise_var = "{{result.noise_var}}";
+    //var dataNode = document.getElementById('identicalreg');
+    var imagesSection = document.getElementById('imagegenerationSecton');
+    var maskButton= document.getElementById('maskButton');
+
+    if (img_res){
+        imagesSection.style.display = "block";
+        if(img_res=="Forged"){
+            maskButton.style.display = "block";
+        }
+        else{
+            maskButton.style.display = "none";   
+        } 
+    }
+    else{
+        imagesSection.style.display = "none";
+    }
+    /*
+    let result = img_res.localeCompare("Forged");
+    if (result == 0) {
+        dataNode.innerHTML = "Details: {{result.compression}}";
+        if (noise_var == 1)
+            dataNode.innerHTML = dataNode.innerHTML + ", Noise variance inconsistency detected";
+        if (identical_regions > 0)
+            dataNode.innerHTML = dataNode.innerHTML + "\nNo. of identical regions: {{result.identical_regions}}";
+    }
+    */
+</script>
+</body>
+
+</html>
