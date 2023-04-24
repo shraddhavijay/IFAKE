@@ -7,17 +7,17 @@
 
 This repository contains two main folders:
 
-1. **IFAKE_AI** - This folder contains the AI Jupyter notebook files through which the forgery detection models are derived.
+1. **IFAKE_AI** - This folder contains the AI Jupyter notebook files used to create the proposed CNN model for forgery detection and classification. The notebook files demonstrate the process of training and testing the model on the FIDAC dataset.
 
 2. **IFAKE_WebApp** - This folder contains the web application project. The web application is built on the Django framework and provides a user-friendly interface for detecting image and video forgeries.
 
 ## Research Paper and Dataset
 
-Our research paper titled "[Image Forgery Detection and Classification Using Deep Learning and FIDAC Dataset](https://ieeexplore.ieee.org/document/XXXXXXX)" is published on IEEE Explore. The paper proposes a CNN-based model for image forgery detection and classification and introduces our created dataset - FIDAC.
+Our research paper titled "[Image Forgery Detection and Classification Using Deep Learning and FIDAC Dataset](https://ieeexplore.ieee.org/document/9862034)" is published on IEEE Explore. The paper proposes a CNN-based model for image forgery detection and classification and introduces our created dataset - FIDAC.
 
-The [FIDAC dataset](https://ieee-dataport.org/open-access/fidac-forged-images-detection-and-classification-dataset) is available on IEEE Dataport and contains original camera-clicked images along with their tampered versions. The dataset was used to train and test our proposed CNN model and compare it with other pre-defined models on various datasets combinations.
+The [FIDAC dataset](https://ieee-dataport.org/documents/fidac-forged-images-detection-and-classification) is available on IEEE Dataport and contains original camera-clicked images along with their tampered versions. The dataset was used to train and test our proposed CNN model and compare it with other pre-defined models on various datasets combinations.
 
-The **IFAKE_AI** folder contains the AI Jupyter notebook files used to create the proposed CNN model for forgery detection and classification. The notebook files demonstrate the process of training and testing the model on the FIDAC dataset.
+
 
 ## Pre-trained Models
 
@@ -48,18 +48,13 @@ To run the web application on Windows, Linux, or Mac, follow these steps:
 6. Open a web browser and go to http://127.0.0.1:8000/ to access the web application.
 
 ## Screenshots
-<img src="screenshots/index.JPG" alt="Image description" width="50%">
-<img src="screenshots/imageDetection1.png" alt="Image description" width="50%">
-<img src="screenshots/imageDetection2.png" alt="Image description" width="50%">
-<img src="screenshots/metadata.JPG" alt="Image description" width="50%">
-<img src="screenshots/videoDetection.png" alt="Image description" width="50%">
-<img src="screenshots/pdfDetection.png" alt="Image description" width="50%">
-![Screenshot 1](screenshots/index.JPG)
-![Screenshot 2](screenshots/imageDetection1.png)
-![Screenshot 3](screenshots/imageDetection2.png)
-![Screenshot 4](screenshots/metadata.JPG)
-![Screenshot 5](screenshots/videoDetection.png)
-![Screenshot 6](screenshots/pdfDetection.png)
+<img src="screenshots/index.JPG" alt="Image description" width="45%">
+<img src="screenshots/imageDetection1.png" alt="Image description" width="45%">
+<img src="screenshots/imageDetection2.png" alt="Image description" width="45%">
+<img src="screenshots/metadata.JPG" alt="Image description" width="45%">
+<img src="screenshots/videoDetection.png" alt="Image description" width="45%">
+<img src="screenshots/pdfDetection.png" alt="Image description" width="45%">
+
 
 
 
