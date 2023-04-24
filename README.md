@@ -21,10 +21,10 @@ The [FIDAC dataset](https://ieee-dataport.org/documents/fidac-forged-images-dete
 
 ## Pre-trained Models
 
-We provide links to download our pre-trained models for image forgery detection and classification:
+We provide links to download our pre-trained models for image & video forgery detection and classification:
 
-- [Model 1](https://example.com/model1)
-- [Model 2](https://example.com/model2)
+- [Image Model weigths](https://drive.google.com/drive/folders/1B4ODeK_QQ6XMFo6i6EEup1nZC6PllVfu?usp=sharing)
+- [Video Model weigths](https://drive.google.com/drive/folders/1irYZbRnr4Y7jKieSyhjxHxwk43oSMqh-?usp=sharing)
 
 ## Running the Web Application
 
