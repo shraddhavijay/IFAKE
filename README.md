@@ -1,6 +1,6 @@
 <!-- Adding a GIF after main title -->
 <p align="center">
-  <img src="https://media.giphy.com/media/RMnyQ0y1nKgHu/giphy.gif">
+  <img src="screenshots/text.gif">
 </p>
 
 <h1 align="center">IFAKE - Image/Video Forgery Detection Application</h1>
@@ -48,10 +48,14 @@ To run the web application on Windows, Linux, or Mac, follow these steps:
 6. Open a web browser and go to http://127.0.0.1:8000/ to access the web application.
 
 ## Screenshots
+![Screenshot 1](screenshots/index.JPG)
+![Screenshot 2](screenshots/imageDetection1.png)
+![Screenshot 3](screenshots/imageDetection2.png)
+![Screenshot 4](screenshots/metadata.JPG)
+![Screenshot 5](screenshots/videoDetection.png)
+![Screenshot 6](screenshots/pdfDetection.png)
 
-![Screenshot 1](screenshots/screenshot1.png)
-![Screenshot 2](screenshots/screenshot2.png)
-![Screenshot 3](screenshots/screenshot3.png)
+
 
 The screenshots show different features of our web application, including the image and video forgery detection functionality, and the ability to upload and view reports of detected forgeries.
 
