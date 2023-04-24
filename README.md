@@ -48,6 +48,12 @@ To run the web application on Windows, Linux, or Mac, follow these steps:
 6. Open a web browser and go to http://127.0.0.1:8000/ to access the web application.
 
 ## Screenshots
+<img src="screenshots/index.JPG" alt="Image description" width="50%">
+<img src="screenshots/imageDetection1.png" alt="Image description" width="50%">
+<img src="screenshots/imageDetection2.png" alt="Image description" width="50%">
+<img src="screenshots/metadata.JPG" alt="Image description" width="50%">
+<img src="screenshots/videoDetection.png" alt="Image description" width="50%">
+<img src="screenshots/pdfDetection.png" alt="Image description" width="50%">
 ![Screenshot 1](screenshots/index.JPG)
 ![Screenshot 2](screenshots/imageDetection1.png)
 ![Screenshot 3](screenshots/imageDetection2.png)
