@@ -1,6 +1,6 @@
 <!-- Adding a GIF after main title -->
 <p align="center">
-  <img src="screenshots/text.gif">
+  <img src="https://raw.githubusercontent.com/shraddhavijay/IFAKE/master/screenshots/text.gif">
 </p>
 
 <h1 align="center">IFAKE - Image/Video Forgery Detection Application</h1>
@@ -48,12 +48,12 @@ To run the web application on Windows, Linux, or Mac, follow these steps:
 6. Open a web browser and go to http://127.0.0.1:8000/ to access the web application.
 
 ## Screenshots
-<img src="screenshots/index.JPG" alt="Image description" width="45%">
-<img src="screenshots/imageDetection1.png" alt="Image description" width="45%">
-<img src="screenshots/imageDetection2.png" alt="Image description" width="45%">
-<img src="screenshots/metadata.JPG" alt="Image description" width="45%">
-<img src="screenshots/videoDetection.png" alt="Image description" width="45%">
-<img src="screenshots/pdfDetection.png" alt="Image description" width="45%">
+<img src="https://raw.githubusercontent.com/shraddhavijay/IFAKE/master/screenshots/index.JPG" alt="Image description" width="45%">
+<img src="https://raw.githubusercontent.com/shraddhavijay/IFAKE/master/screenshots/imageDetection1.png" alt="Image description" width="45%">
+<img src="https://raw.githubusercontent.com/shraddhavijay/IFAKE/master/screenshots/imageDetection2.png" alt="Image description" width="45%">
+<img src="https://raw.githubusercontent.com/shraddhavijay/IFAKE/master/screenshots/metadata.JPG" alt="Image description" width="45%">
+<img src="https://raw.githubusercontent.com/shraddhavijay/IFAKE/master/screenshots/videoDetection.png" alt="Image description" width="45%">
+<img src="https://raw.githubusercontent.com/shraddhavijay/IFAKE/master/screenshots/pdfDetection.png" alt="Image description" width="45%">
 
 
 
