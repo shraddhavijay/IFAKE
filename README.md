@@ -7,13 +7,13 @@
 
 This repository contains two main folders:
 
-1. **IFAKE_AI** - This folder contains the AI Jupyter notebook files used to create the proposed CNN model for forgery detection and classification. The notebook files demonstrate the process of training and testing the model on the FIDAC dataset.
+1. **IFAKE_AI** - This folder contains the AI Jupyter notebook files used to create the proposed CNN model for forgery detection and classification. The notebook files demonstrate the process of training and testing the model on the FIDAC & CASIA dataset.
 
 2. **IFAKE_WebApp** - This folder contains the web application project. The web application is built on the Django framework and provides a user-friendly interface for detecting image and video forgeries.
 
 ## Research Paper and Dataset
 
-Our research paper titled "[Image Forgery Detection and Classification Using Deep Learning and FIDAC Dataset](https://ieeexplore.ieee.org/document/9862034)" is published on IEEE Explore. The paper proposes a CNN-based model for image forgery detection and classification and introduces our created dataset - FIDAC.
+Our research paper titled "[Image Forgery Detection and Classification Using Deep Learning and FIDAC Dataset](https://ieeexplore.ieee.org/document/9862034)" is published on IEEE Explore. In this paper, we propose our model that uses CNN for classification after being fed with ELA preprocessed images to detect image forgery, and we also introduce our created dataset - FIDAC (Forged Images Detection And Classification), which consists of original cameraclicked images along with their tampered version. Furthermore, we conducted an experimental analysis wherein we compared our proposed CNN model with famous pre-defined models on various datasets combinations.
 
 The [FIDAC dataset](https://ieee-dataport.org/documents/fidac-forged-images-detection-and-classification) is available on IEEE Dataport and contains original camera-clicked images along with their tampered versions. The dataset was used to train and test our proposed CNN model and compare it with other pre-defined models on various datasets combinations.
 
