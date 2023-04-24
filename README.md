@@ -1,51 +1,44 @@
-# IFAKE - Image/Video Forgery Detection Application
+# IFAKE- Image/Video Forgery Detection Application
 
-IFAKE is an application that uses AI models to detect and classify image and video forgeries. This repository consists of two folders:
-1. The web application project
-2. The AI ipynb files through which the forgery detection models are derived.
+This repository contains two main folders:
+
+1. IFAKE_AI - This folder contains the AI Jupyter notebook files through which the forgery detection models are derived. 
+
+2. IFAKE_WebApp - This folder contains the web application project. The web application is built on the Django framework and provides a user-friendly interface for detecting image and video forgeries. 
 
 ## Research Paper and Dataset
 
-We have conducted research on image forgery detection and classification and have published a research paper on it. You can find the link to the paper [here](https://example.com/paper). Additionally, we have created our own dataset, FIDAC, which we used in our research. The FIDAC dataset is a mixture of our own dataset and the CASIA dataset. You can find the link to our dataset [here](https://example.com/dataset).
+Our research paper titled "Image Forgery Detection and Classification Using Deep Learning and FIDAC Dataset" is published on IEEE Explore. The paper proposes a CNN-based model for image forgery detection and classification and introduces our created dataset - FIDAC.
 
-## Pretrained Models
+The FIDAC dataset is available on IEEE Dataport and contains original camera-clicked images along with their tampered versions. The dataset was used to train and test our proposed CNN model and compare it with other pre-defined models on various datasets combinations.
 
-We have also trained and provided pretrained models for image and video forgery detection. You can find the links to download these models below:
+The IFAKE_AI folder contains the AI Jupyter notebook files used to create the proposed CNN model for forgery detection and classification. The notebook files demonstrate the process of training and testing the model on the FIDAC dataset.
 
-1. Image forgery detection model: [link](https://example.com/image_model)
-2. Video forgery detection model: [link](https://example.com/video_model)
+## Pre-trained Models
 
-## Web Application
+We provide links to download our pre-trained models for image forgery detection and classification.
 
-Our web application is built on the Django framework. To run the application, follow these steps:
+## Running the Web Application
 
-1. Clone the repository: `git clone https://github.com/your_username/IFAKE.git`
-2. Navigate to the `web_application` directory: `cd IFAKE/web_application`
-3. Install the required packages: `pip install -r requirements.txt`
-4. Run the server: `python manage.py runserver`
+To run the web application on Windows, Linux, or Mac, follow these steps:
 
-The web application can now be accessed at `http://localhost:8000/` on your web browser.
+1. Install Python3 and pip3
+2. Clone this repository
+3. Open a terminal and navigate to the IFAKE_WebApp folder
+4. Run the following command to install the required Python packages:
+
+pip3 install -r requirements.txt
+
+
+5. Run the following command to start the web application:
+
+
+6. Open a web browser and go to http://127.0.0.1:8000/ to access the web application.
 
 ## Screenshots
 
-Below are some screenshots of our application:
+![Screenshot 1](screenshots/screenshot1.png)
+![Screenshot 2](screenshots/screenshot2.png)
+![Screenshot 3](screenshots/screenshot3.png)
 
-![Screenshot 1](https://example.com/screenshot1.png)
-
-![Screenshot 2](https://example.com/screenshot2.png)
-
-![Screenshot 3](https://example.com/screenshot3.png)
-
-![Screenshot 4](https://example.com/screenshot4.png)
-
-![Screenshot 5](https://example.com/screenshot5.png)
-
-## Contributors
-
-- Shraddha Pawar 
-- Gaurangi Pradhan 
-- Bhavin Goswami 
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more information.
+The screenshots show different features of our web application, including the image and video forgery detection functionality, and the ability to upload and view reports of detected forgeries.
