@@ -65,9 +65,7 @@ The screenshots show different features of our web application, including the im
 - Gaurangi Pradhan
 - Bhavin Goswami
 
-## Contact
 
-If you have any questions or issues, please contact us at ifake@example.com.
 
 ## License
 
