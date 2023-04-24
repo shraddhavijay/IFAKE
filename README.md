@@ -1,4 +1,9 @@
-# IFAKE - Image/Video Forgery Detection Application
+<!-- Adding a GIF after main title -->
+<p align="center">
+  <img src="https://media.giphy.com/media/RMnyQ0y1nKgHu/giphy.gif">
+</p>
+
+<h1 align="center">IFAKE - Image/Video Forgery Detection Application</h1>
 
 This repository contains two main folders:
 
@@ -51,10 +56,14 @@ To run the web application on Windows, Linux, or Mac, follow these steps:
 The screenshots show different features of our web application, including the image and video forgery detection functionality, and the ability to upload and view reports of detected forgeries.
 
 ## Contributors
-Shraddha Pawar
-Gaurangi Pradhan
-Bhavin Goswami
+- Shraddha Pawar
+- Gaurangi Pradhan
+- Bhavin Goswami
 
 ## Contact
 
 If you have any questions or issues, please contact us at ifake@example.com.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
